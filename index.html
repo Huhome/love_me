@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱心</title>
+  <!-- <link rel="stylesheet" href="./css/love.css"> -->
+  <!-- 为了减少代码量, 这个案例用到vue的语法 -->
+  <script src="./js/vue.js"></script>
+</head>
+
+<body>
+  <div class="app">
+    <!-- --d 是 css的自定义属性 -->
+    <div class="love" v-for="item in 67 " :style="{'--d':(item*-1)*0.3 }">
+      <div class="love-hor">
+        <div class="love-ver">
+          <div class="love-text">love me {{item}} </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: '.app',
+
+  })
+</script>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    /* 100% 窗口宽高 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(to top, #ff9a9e, #fad0ce);
+    overflow: hidden;
+    /* 禁止选取 */
+    user-select: none;
+  }
+
+  .love {
+    position: absolute;
+    margin: -250px 0 0 -250px;
+  }
+
+  .love-hor {
+    animation: hor 10s ease-in-out infinite alternate;
+    animation-delay: calc(var(--d) * 1s);
+  }
+
+  .love-ver {
+
+    animation: ver 20s linear infinite;
+    animation-delay: calc(var(--d) * 1s);
+  }
+
+  .love-text {
+    color: #fff;
+    text-shadow: 0 0 10px #ebeb6d;
+    letter-spacing: 2px;
+    font-size: 22px;
+    transform: translateY(100%) rotateZ(-30deg);
+  }
+
+  /* 定义动画 */
+  @keyframes hor {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(500px);
+    }
+  }
+
+  @keyframes ver {
+    0% {
+      transform: translateY(180px);
+    }
+
+    10% {
+      transform: translateY(45px);
+    }
+
+    15% {
+      transform: translateY(4.5px);
+    }
+
+    18% {
+      transform: translateY(0px);
+    }
+
+    20% {
+      transform: translateY(4.5px);
+    }
+
+    22% {
+      transform: translateY(34px);
+    }
+
+    24% {
+      transform: translateY(64px);
+    }
+
+    25% {
+      transform: translateY(112.5px);
+    }
+
+    26% {
+      transform: translateY(64px);
+    }
+
+    28% {
+      transform: translateY(34px);
+    }
+
+    30% {
+      transform: translateY(4.5px);
+    }
+
+    32% {
+      transform: translateY(0px);
+    }
+
+    35% {
+      transform: translateY(4.5px);
+    }
+
+    40% {
+      transform: translateY(45px);
+    }
+
+    50% {
+      transform: translateY(180px);
+    }
+
+    71% {
+      transform: translateY(428px);
+    }
+
+    72% {
+      transform: translateY(441px);
+    }
+
+    75% {
+      transform: translateY(450px);
+    }
+
+    77% {
+      transform: translateY(441px);
+    }
+
+    79% {
+      transform: translateY(428px);
+    }
+
+    100% {
+      transform: translateY(180px);
+    }
+  }
+</style>
+
+</html>
